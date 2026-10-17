@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafe Mr. Enzo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. HEADER & NAVIGASI -->
+    <header>
+        <div class="logo">Kafe Kopi Enzo</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. HERO SECTION (Sambutan) -->
+    <section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Selamat Datang di Kafe Mr. Enzo</h1>
+        <p>Nikmati sore hari dengan ketenangan!</p>
+        <a href="#menu" class="btn">Lihat Menu Kami</a>
+    </div>
+    </section>
+
+    <!-- 3. MENU SECTION -->
+    <section id="menu" class="menu-section">
+        <h2>Menu Andalan Kami</h2>
+        <div class="menu-container">
+            <!-- Item Menu 1 -->
+            <div class="menu-item">
+                <h3>Espresso</h3>
+                <img src="Espresso.jpg" alt="kopi" class="gambar-menu">
+                <p>Kopi hitam pekat dengan rasa yang kuat.</p>
+                <span class="harga">Rp 15.000</span>
+                <button class="btn" onclick="tambahPesanan('Espresso', 15000)">Tambah Pesanan</button>
+            </div>
+            <!-- Item Menu 2 -->
+            <div class="menu-item">
+                <h3>Cappuccino</h3>
+                <img src="cappucino.jpg" alt="Cappuccino" class="gambar-menu">
+                <p>Espresso dengan busa susu yang lembut.</p>
+                <span class="harga">Rp 25.000</span>
+                <button class="btn" onclick="tambahPesanan('Cappuccino', 25000)">Tambah Pesanan</button>
+            </div>
+            <!-- Item Menu 3 -->
+            <div class="menu-item">
+                <h3>Kopi Susu Gula Aren</h3>
+                <img src="Gula aren.jpg" alt="Kopi Susu Gula Aren" class="gambar-menu">
+                <p>Manisnya pas, cocok untuk menemani santai.</p>
+                <span class="harga">Rp 20.000</span>
+                <button class="btn" onclick="tambahPesanan('Kopi Susu Gula aren', 20000)">Tambah Pesanan</button>
+            </div>
+
+            <!-- PEMBATAS BARIS (Agar menu ke-4 turun ke bawah) -->
+            <div style="flex-basis: 100%; height: 0;"></div>
+
+            <!-- Item Menu 4 -->
+            <div class="menu-item">
+                <h3>Roti Bakar</h3>
+                <img src="Roti Bakar.jpg" alt="Roti Bakar" class="gambar-menu">
+                <p>Teman Minum Kopi Membuat Kopi Terasa Lebih Nikmat.</p>
+                <span class="harga">Rp 10.000</span>
+                <button class="btn" onclick="tambahPesanan('Roti Bakar', 10000)">Tambah Pesanan</button>
+            </div>
+
+            <!-- Item Menu 5 -->
+            <div class="menu-item">
+                <h3>Mie Goreng</h3>
+                <img src="Mie Goreng.jpg" alt="Mie Goreng" class="gambar-menu">
+                <p>Mie goreng hangat, teman terbaik di kala lapar.</p>
+                <span class="harga">Rp 15.000</span>
+                <button class="btn" onclick="tambahPesanan('Mie Goreng', 15000)">Tambah Pesanan</button>
+            </div>
+
+            <!-- Item Menu 6 -->
+            <div class="menu-item">
+                <h3>Nasi Goreng</h3>
+                <img src="Nasi Goreng.jpg" alt="Nasi Goreng" class="gambar-menu">
+                <p>Aroma bumbunya bikin lapar, rasanya bikin ketagihan.</p>
+                <span class="harga">Rp 20.000</span>
+                <button class="btn" onclick="tambahPesanan('Nasi Goreng', 20000)">Tambah Pesanan</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer id="kontak">
+        <p>&copy; 2026 Kafe Enzo.</p>
+        <p>Alamat: Jl. Wolter Mongensidi No. 362 | WhatsApp: <span class="wa-denyut">0812-4750-4581</span></p>
+    </footer>
+
+    <!-- 5. ELEMEN KERANJANG (Harus di dalam body) -->
+    <!-- Tombol Keranjang Melayang -->
+    <div id="keranjangMengambang" class="keranjang-btn" onclick="bukaKeranjang()">
+        🛒 <span id="jumlahItem">0</span>
+    </div>
+
+    <!-- Pop-up Keranjang -->
+<div id="modalKeranjang" class="modal-overlay">
+    <div class="modal-box">
+        <h2>🛒 Pesanan Anda</h2>
+        
+        <!-- Daftar Pesanan -->
+        <ul id="daftarPesanan"></ul>
+        <h3 id="totalHarga">Total: Rp 0</h3>
+        
+        <!-- Formulir Data Pelanggan -->
+        <div class="form-group">
+            <label for="namaPelanggan">Nama Anda:</label>
+            <input type="text" id="namaPelanggan" placeholder="Nama">
+        </div>
+        <div class="form-group">
+            <label for="nomorMeja">Nomor Meja:</label>
+            <input type="text" id="nomorMeja" placeholder="Contoh: Meja 5" required>
+        </div>
+        <!-- Tombol Aksi -->
+        <button class="btn btn-wa" onclick="kirimKeWhatsApp()">Pesan via WhatsApp</button>
+        <!-- TOMBOL BARU: Batalkan Pesanan -->
+        <button class="btn btn-batal" onclick="batalkanPesanan()">Batalkan Pesanan</button>
+        <button class="btn btn-tutup" onclick="tutupKeranjang()">Tutup</button>
+    </div>
+</div>
+    <!-- 6. SCRIPT JAVASCRIPT (Wajib ada di paling bawah) -->
+    <script src="script.js"></script>
+</body>
+</html>

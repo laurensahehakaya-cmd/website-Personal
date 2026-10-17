@@ -1,0 +1,131 @@
+/* ==========================================
+   TAMPILAN DASHBOARD ADMIN (DIPERBARUI)
+   ========================================== */
+
+/* --- HEADER --- */
+header {
+    background-color: #3e2723; /* Cokelat tua */
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none; /* Menghilangkan titik-titik */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none; /* Menghilangkan garis bawah */
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d4a373; /* Warna karamel saat disentuh mouse */
+}
+
+/* 1. Bagian Atas (Hero) */
+.hero {
+    background-color: #eaddd3; /* Warna krem */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid #3e2723;
+}
+
+.hero h1 {
+    color: #3e2723;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* 2. Bagian Pusat Komando */
+.dashboard-section {
+    padding: 50px 20px;
+    background-color: #fcf9f2; /* Latar belakang halaman krem lembut */
+    min-height: 50vh;
+}
+
+.dashboard-section h2 {
+    text-align: center;
+    color: #3e2723;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* 3. Grid untuk Kartu */
+.dashboard-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* Agar turun ke bawah jika layar sempit */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 4. Kartu Dashboard */
+.dashboard-card {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Bayangan lembut */
+    width: 250px;
+    text-align: center;
+    border-top: 5px solid #d4a373; /* Aksen karamel di atas */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efek saat mouse diarahkan ke kartu */
+.dashboard-card:hover {
+    transform: translateY(-5px); /* Kartu naik sedikit */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih tebal */
+}
+
+.dashboard-card h3 {
+    color: #3e2723;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.dashboard-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* 5. Tombol di dalam Kartu */
+.dashboard-card .btn {
+    background-color: #d4a373;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dashboard-card .btn:hover {
+    background-color: #bc8a5f;
+}
